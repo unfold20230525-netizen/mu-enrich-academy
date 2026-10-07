@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# エディタ設定
+.vscode/
+.idea/
+
+# OS生成ファイル
+Thumbs.db
