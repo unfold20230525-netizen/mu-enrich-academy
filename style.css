@@ -1336,7 +1336,7 @@ button {
   position: relative;
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 2 / 3;
   background: #15140f;
   background-image: linear-gradient(150deg,#1d1c15,#060605);
   border-radius: 4px;
