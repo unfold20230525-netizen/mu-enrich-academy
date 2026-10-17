@@ -1184,6 +1184,28 @@ button {
 /* =====================================================
    9. FOUNDER / INSTRUCTOR
    ===================================================== */
+/* スクリーンショットに合わせたクリーム色の背景（明るい配色に切り替え） */
+.founder {
+  --color-text: #2a2620;
+  --color-text-dim: rgba(42, 38, 32, 0.78);
+  --color-gold: #a88a55;
+  background:
+    radial-gradient(ellipse 60% 70% at 40% 15%, #fdfcf9 0%, transparent 70%),
+    linear-gradient(160deg, #f6f3ed 0%, #efe9df 100%);
+  color: var(--color-text);
+}
+.founder .gold-curve--founder { display: none; }
+.founder .eyebrow { font-size: 0.92rem; }
+.founder .eyebrow::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.6;
+  margin-top: 1.2rem;
+}
+
 .founder-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1194,8 +1216,8 @@ button {
 
 .founder-name {
   font-family: var(--font-jp);
-  color: var(--color-gold);
-  font-size: clamp(1.7rem, 8vw, 2.1rem);
+  color: var(--color-text);
+  font-size: clamp(1.9rem, 9vw, 2.3rem);
   font-weight: 500;
   letter-spacing: 0.08em;
   margin: 1rem 0 1.2rem;
@@ -1204,7 +1226,7 @@ button {
 .founder-role {
   font-family: var(--font-en), var(--font-jp);
   color: var(--color-text);
-  font-size: 1.02rem;
+  font-size: 1.15rem;
   line-height: 1.9;
   letter-spacing: 0.04em;
   margin-bottom: 1.6rem;
@@ -1212,7 +1234,7 @@ button {
 
 .founder-profile p {
   color: var(--color-text-dim);
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   line-height: 2;
 }
 .founder-profile p + p { margin-top: 1rem; }
@@ -1220,19 +1242,19 @@ button {
 /* 略歴 */
 .founder-history {
   margin-top: 2.5rem;
-  border-top: 1px solid rgba(176, 141, 79, 0.3);
+  border-top: 1px solid rgba(168, 138, 85, 0.35);
 }
 .fh-row {
   display: grid;
   grid-template-columns: 5.5rem 1fr;
   gap: 1rem;
   padding: 1.1rem 0;
-  border-bottom: 1px solid rgba(176, 141, 79, 0.3);
+  border-bottom: 1px solid rgba(168, 138, 85, 0.35);
 }
 .fh-row dt {
   font-family: var(--font-en);
-  color: var(--color-gold);
-  font-size: 0.95rem;
+  color: #8c6d3f;
+  font-size: 1.08rem;
   letter-spacing: 0.04em;
   line-height: 1.7;
   white-space: nowrap;
@@ -1242,13 +1264,13 @@ button {
   display: block;
   color: var(--color-text);
   font-weight: 500;
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   line-height: 1.7;
 }
 .fh-row span {
   display: block;
   color: var(--color-text-dim);
-  font-size: 0.84rem;
+  font-size: 0.96rem;
   line-height: 1.8;
   margin-top: 0.3rem;
 }
@@ -1262,7 +1284,7 @@ button {
   cursor: pointer;
   list-style: none;
   color: var(--color-text);
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   letter-spacing: 0.06em;
   padding-bottom: 1.2rem;
 }
@@ -1289,7 +1311,7 @@ button {
 }
 .fd-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
 .founder-detail[open] .fd-icon { transform: rotate(45deg); }
-.founder-detail[open] summary { border-bottom: 1px solid rgba(176, 141, 79, 0.3); }
+.founder-detail[open] summary { border-bottom: 1px solid rgba(168, 138, 85, 0.35); }
 .fd-list {
   list-style: none;
   padding: 0;
@@ -1299,14 +1321,14 @@ button {
 .fd-list h3 {
   font-family: var(--font-jp);
   color: var(--color-gold);
-  font-size: 0.98rem;
+  font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   margin-bottom: 0.5rem;
 }
 .fd-list p {
   color: var(--color-text-dim);
-  font-size: 0.84rem;
+  font-size: 0.96rem;
   line-height: 1.9;
 }
 
@@ -1334,7 +1356,7 @@ button {
   text-align: center;
 }
 .number-label {
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   color: var(--color-text-dim);
   margin-bottom: 0.8rem;
   letter-spacing: 0.03em;
@@ -1342,18 +1364,18 @@ button {
 .number-value {
   font-family: var(--font-en);
   color: var(--color-gold);
-  font-size: clamp(1.8rem, 9vw, 2.4rem);
+  font-size: clamp(2rem, 10vw, 2.7rem);
   font-weight: 500;
   white-space: nowrap;
 }
 .number-value span {
-  font-size: 1rem;
+  font-size: 1.12rem;
   font-family: var(--font-jp);
   margin-left: 0.3rem;
 }
 
 .founder-note {
-  font-size: 0.72rem;
+  font-size: 0.84rem;
   color: var(--color-text-dim);
   opacity: 0.7;
   text-align: center;
@@ -1626,7 +1648,7 @@ button {
   .hero-title { font-size: 2.8rem; }
   .section-title { font-size: 2.4rem; }
   .zc-title { font-size: 4.5rem; }
-  .founder-name { font-size: 2.8rem; }
+  .founder-name { font-size: 3.2rem; }
   .steps-catch { font-size: 2.1rem; }
   .final-cta-title { font-size: 2.6rem; }
   .flow-kanji { font-size: 4.6rem; }
