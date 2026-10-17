@@ -1188,7 +1188,7 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
-  align-items: center;
+  align-items: start;
   margin-bottom: 3.5rem;
 }
 
@@ -1197,13 +1197,117 @@ button {
   color: var(--color-gold);
   font-size: clamp(1.7rem, 8vw, 2.1rem);
   font-weight: 500;
-  margin: 1rem 0 1.5rem;
+  letter-spacing: 0.08em;
+  margin: 1rem 0 1.2rem;
 }
 
-.founder-profile {
+.founder-role {
+  font-family: var(--font-en), var(--font-jp);
+  color: var(--color-text);
+  font-size: 1.02rem;
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.6rem;
+}
+
+.founder-profile p {
   color: var(--color-text-dim);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 2;
+}
+.founder-profile p + p { margin-top: 1rem; }
+
+/* 略歴 */
+.founder-history {
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(176, 141, 79, 0.3);
+}
+.fh-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(176, 141, 79, 0.3);
+}
+.fh-row dt {
+  font-family: var(--font-en);
+  color: var(--color-gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  white-space: nowrap;
+}
+.fh-row dd { margin: 0; }
+.fh-row strong {
+  display: block;
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.fh-row span {
+  display: block;
+  color: var(--color-text-dim);
+  font-size: 0.84rem;
+  line-height: 1.8;
+  margin-top: 0.3rem;
+}
+
+/* 経歴の詳細（アコーディオン） */
+.founder-detail { margin-top: 1.6rem; }
+.founder-detail summary {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  cursor: pointer;
+  list-style: none;
+  color: var(--color-text);
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  padding-bottom: 1.2rem;
+}
+.founder-detail summary::-webkit-details-marker { display: none; }
+.fd-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.fd-icon::before,
+.fd-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.9rem;
+  height: 1px;
+  background: var(--color-text);
+  transform: translate(-50%, -50%);
+}
+.fd-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+.founder-detail[open] .fd-icon { transform: rotate(45deg); }
+.founder-detail[open] summary { border-bottom: 1px solid rgba(176, 141, 79, 0.3); }
+.fd-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.6rem 0 0;
+}
+.fd-list li + li { margin-top: 1.6rem; }
+.fd-list h3 {
+  font-family: var(--font-jp);
+  color: var(--color-gold);
+  font-size: 0.98rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+.fd-list p {
+  color: var(--color-text-dim);
+  font-size: 0.84rem;
+  line-height: 1.9;
 }
 
 .founder-img {
@@ -1532,9 +1636,14 @@ button {
   .mc-text { font-size: 0.88rem; }
 
   .founder-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     gap: 4rem;
   }
+  .founder-img-wrap {
+    position: sticky;
+    top: 6rem;
+  }
+  .fh-row { grid-template-columns: 7.5rem 1fr; }
 
   .founder-numbers {
     max-width: 500px;
