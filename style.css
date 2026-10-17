@@ -967,6 +967,111 @@ button {
 }
 
 /* =====================================================
+   6.6. MESSAGE FROM MATSUBARA
+   ===================================================== */
+.message {
+  background:
+    radial-gradient(ellipse 50% 60% at 0% 10%, rgba(176,141,79,0.08), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 100% 100%, rgba(176,141,79,0.06), transparent 70%),
+    #0d0c0a;
+}
+
+/* 背景を横切る細い金の曲線 */
+.message-curve {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  height: 70%;
+  color: rgba(176,141,79,0.3);
+  pointer-events: none;
+  z-index: 0;
+}
+/* スマホでは曲線が本文を横切って読みにくいため非表示 */
+@media (max-width: 899px) {
+  .message-curve { display: none; }
+}
+
+.message-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.message-eyebrow {
+  font-family: var(--font-en);
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  margin-bottom: 1.4rem;
+}
+.message-eyebrow::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: var(--color-gold);
+  margin-top: 1.2rem;
+}
+
+.message-title {
+  font-family: var(--font-jp);
+  font-weight: 400;
+  color: #fdfcfa;
+  font-size: clamp(1.7rem, 7.5vw, 3.2rem);
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  margin-bottom: 2.6rem;
+}
+
+.message-body p {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 2.1;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+  text-wrap: pretty;
+}
+
+.message-closing {
+  margin-top: 2.6rem;
+  font-family: var(--font-jp);
+  color: #dcc396;
+  font-size: clamp(1.25rem, 5.6vw, 1.9rem);
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+}
+
+/* 写真コラージュ：大きい写真の右側に小さい写真2枚を重ねる */
+.message-photos {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 456 / 466;
+  margin: 0 auto;
+}
+.message-photo {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid rgba(242,239,233,0.25);
+  background: linear-gradient(150deg, #24231f, #121210);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+.mp-main { left: 0;   top: 0;     width: 86%; height: 100%; }
+.mp-sub1 { left: 57%; top: 8%;    width: 43%; height: 37.3%; background: linear-gradient(150deg, #2b2a25, #161513); }
+.mp-sub2 { left: 57%; top: 58.2%; width: 43%; height: 37.3%; background: linear-gradient(150deg, #2b2a25, #161513); }
+
+@media (min-width: 900px) {
+  .message-grid {
+    grid-template-columns: minmax(0, 470px) minmax(0, 460px);
+    justify-content: center;
+    gap: 5rem;
+  }
+  .message-body p { font-size: 0.95rem; }
+}
+
+/* =====================================================
    7. アカデミーで学ぶこと
    ===================================================== */
 .curri-list {
