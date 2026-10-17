@@ -1,9 +1,21 @@
 /* =====================================================
    MU ENRICH ACADEMY - script.js
-   ハンバーガーメニュー / スクロールフェードイン / FAQアコーディオン
+   画像フォールバック / ハンバーガーメニュー / スクロールフェードイン / FAQアコーディオン
    ===================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* -----------------------------------------------
+     画像が未配置・読込失敗の場合は img を取り除き、
+     placeholderのグラデーション背景を表示する
+  ----------------------------------------------- */
+  document.querySelectorAll('img.fill-img').forEach((img) => {
+    if (img.complete && img.naturalWidth === 0) {
+      img.remove();
+    } else {
+      img.addEventListener('error', () => img.remove(), { once: true });
+    }
+  });
 
   /* -----------------------------------------------
      ハンバーガーメニューの開閉
