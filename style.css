@@ -450,6 +450,108 @@ button {
    ===================================================== */
 
 /* =====================================================
+   3.5. WHO ARE YOU（明るい背景のセクション）
+   ===================================================== */
+.who {
+  --who-ink: #2a2620;
+  --who-gold: #a88a55;
+  background:
+    radial-gradient(ellipse 60% 70% at 40% 15%, #fdfcf9 0%, transparent 70%),
+    linear-gradient(160deg, #f6f3ed 0%, #efe9df 100%);
+  color: var(--who-ink);
+}
+
+/* 背景にうっすら流れる金の曲線 */
+.who-curve {
+  position: absolute;
+  left: 0;
+  top: 45%;
+  width: 52%;
+  height: 55%;
+  color: rgba(168,138,85,0.35);
+  pointer-events: none;
+  z-index: 0;
+}
+/* スマホでは曲線が本文を横切って読みにくいため非表示 */
+@media (max-width: 767px) {
+  .who-curve { display: none; }
+}
+
+.who-eyebrow {
+  font-family: var(--font-en);
+  color: var(--who-gold);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  margin-bottom: 1.4rem;
+}
+.who-eyebrow::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: var(--who-gold);
+  opacity: 0.6;
+  margin-top: 1.2rem;
+}
+
+.who-title {
+  font-family: var(--font-jp);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 8.5vw, 3.6rem);
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  color: var(--who-ink);
+  margin-bottom: 3rem;
+}
+
+.who-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2.5rem;
+}
+.who-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(42,38,32,0.12);
+  font-size: 0.98rem;
+  line-height: 1.85;
+  letter-spacing: 0.04em;
+  color: var(--who-ink);
+  text-wrap: pretty; /* 最終行に1文字だけ残るのを防ぐ */
+}
+.who-check {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-top: 0.05rem;
+  border: 1px solid var(--who-gold);
+  border-radius: 50%;
+  color: var(--who-gold);
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .who-title { margin-bottom: 4rem; }
+  /* PCは左右2列。HTMLの順に左列3つ→右列3つと並べる */
+  .who-list {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: column;
+    column-gap: 3rem;
+  }
+  .who-list li {
+    font-size: 1.08rem;
+    padding: 1.8rem 0 2.2rem;
+  }
+}
+
+/* =====================================================
    4. こんな美容師へ（ターゲット）
    ===================================================== */
 .target-grid {
